@@ -1,0 +1,43 @@
+{
+    "headers": {
+      "schema": "st-schema",
+      "version": "1.0",
+      "interactionType": "discoveryResponse",
+      "requestId": "1"
+    },
+    "devices": [
+      {
+        "externalDeviceId": "pdevice-1",
+        "deviceCookie": {"updatedcookie": "old or new value"},
+        "friendlyName": "Kitchen Bulb",
+        "manufacturerInfo": {
+          "manufacturerName": "LIFX",
+          "modelName": "A19 Color Bulb",
+          "hwVersion": "v1 US bulb",
+          "swVersion": "23.123.231"
+        },
+        "deviceContext": {
+          "roomName": "Kitchen",
+          "groups": ["Kitchen Lights", "House Bulbs"],
+          "categories": ["light", "switch"]
+        },
+        "deviceHandlerType": "c2c-rgbw-color-bulb"
+      },
+      {
+        "externalDeviceId": "pdevice-2",
+        "friendlyName": "Toaster",
+        "manufacturerInfo": {
+          "manufacturerName": "LIFX",
+          "modelName": "Outlet",
+          "hwVersion": "v1 US outlet",
+          "swVersion": "3.03.11"
+        },
+        "deviceContext": {
+          "roomName": "Living Room",
+          "groups": ["Hall Lights"],
+          "categories": ["light"]                
+        },
+        "deviceHandlerType": "c2c-rgbw-color-bulb"
+      }
+    ]
+  }

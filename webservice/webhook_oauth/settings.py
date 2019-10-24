@@ -122,6 +122,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 # use the new authentication backend in Django REST Framework
 # https://django-oauth-toolkit.readthedocs.io/en/latest/rest-framework/getting_started.html
 REST_FRAMEWORK = {
@@ -135,5 +137,6 @@ REST_FRAMEWORK = {
 
 OAUTH2_PROVIDER = {
     # this is the list of available scopes
-    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'}
+    # https://smartthings.developer.samsung.com/docs/auth-and-permissions.html#OAuth2-scopes
+    'SCOPES': {'r:installedapps:*': 'Read scope', 'w:installedapps:*': 'Write scope'}
 }

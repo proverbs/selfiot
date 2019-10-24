@@ -14,13 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from webhook_oauth.views import UserDetails, UserList, GroupList
 from webhook_oauth.views import webhook
 
 # Setup the URLs and include login URLs for the browsable API.
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('accounts/', admin.site.urls),
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     path('users/', UserList.as_view()),
     path('users/<pk>/', UserDetails.as_view()),

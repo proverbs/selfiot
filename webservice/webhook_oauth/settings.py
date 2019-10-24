@@ -122,6 +122,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 # use the new authentication backend in Django REST Framework
 # https://django-oauth-toolkit.readthedocs.io/en/latest/rest-framework/getting_started.html
 REST_FRAMEWORK = {

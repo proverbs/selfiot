@@ -1,7 +1,7 @@
 from rest_framework import generics, permissions
 from django.contrib.auth.models import User, Group
 from oauth2_provider.contrib.rest_framework import TokenHasReadWriteScope, TokenHasScope
-from webhook.serializers import UserSerializer, GroupSerializer
+from webhook_oauth.serializers import UserSerializer, GroupSerializer
 
 # Create the API views
 class UserList(generics.ListCreateAPIView):

@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from webhook_oauth.views import UserDetails, UserList, GroupList
+from webhook_oauth.views import webhook
 
 # Setup the URLs and include login URLs for the browsable API.
 urlpatterns = [
@@ -24,5 +25,5 @@ urlpatterns = [
     path('users/', UserList.as_view()),
     path('users/<pk>/', UserDetails.as_view()),
     path('groups/', GroupList.as_view()),
-    # ...
+    path('webhook/', webhook, name='webhook'),
 ]

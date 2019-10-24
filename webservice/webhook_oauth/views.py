@@ -1,3 +1,4 @@
+from django.shortcuts import redirect
 from rest_framework import generics, permissions
 from django.contrib.auth.models import User, Group
 from oauth2_provider.contrib.rest_framework import TokenHasReadWriteScope, TokenHasScope
@@ -19,3 +20,15 @@ class GroupList(generics.ListAPIView):
     required_scopes = ['groups']
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+
+
+def webhook(request):
+    print('>>>>>WebHook')
+    # TODO: https://glitch.com/edit/#!/smartthings-connector?path=index.js:34:5
+
+    # GET
+    if request.method == 'GET':
+        print('error')
+        return redirect('https://www.google.com')
+    # POST
+    print(request.POST)

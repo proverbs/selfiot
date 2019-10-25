@@ -3,7 +3,7 @@
       "schema": "st-schema",
       "version": "1.0",
       "interactionType": "discoveryResponse",
-      "requestId": "1"
+      "requestId": "req1"
     },
     "devices": [
       {

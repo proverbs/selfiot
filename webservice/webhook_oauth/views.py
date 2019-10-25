@@ -33,22 +33,43 @@ def webhook(request):
     if request.method == 'GET':
         print('error')
         return redirect('https://www.google.com')
+
     # POST
     if request.method == 'POST':
         request_json = json.loads(request.body)
+        interactionType = request_json['headers']['interactionType']
+        print(request_json)
 
-        if request_json['headers']['interactionType'] == 'discoveryRequest':
-            with open('./webhook_oauth/templates/discoveryResponse.json') as json_file:
-                response_json = json.load(json_file)
-                response_json['headers'] = request_json['headers']
-                # print(response_json)
-            return JsonResponse(response_json)
+        response = {}
+        if interactionType == 'discoveryRequest':
+            response = discoveryRequest(request_json)
+        elif interactionType == 'stateRefreshRequest':        
+            response = stateRefreshRequest(request_json) 
+        elif interactionType == 'commandRequest':          
+            response = commandRequest(request_json)
+        return JsonResponse(response)
 
-        elif request_json['headers']['interactionType'] == 'stateRefreshRequest':
-    
-            return ""
-        
-        elif request_json['headers']['interactionType'] == 'commandRequest':
+# Handle discovery request interaction type from SmartThings
+def discoveryRequest(request_json):
+    discoveryResponse_json = {}
+    with open('./webhook_oauth/templates/discoveryResponse.json') as json_file:
+        discoveryResponse_json = json.load(json_file)
+        discoveryResponse_json['headers']['requestId'] = request_json['headers']['requestId']
+    return discoveryResponse_json
+
+# Handle state refresh request interaction type from SmartThings
+def stateRefreshRequest(request_json):
+    stateRefreshResponse_json = {}
+    with open('./webhook_oauth/templates/stateRefreshResponse.json') as json_file:
+        stateRefreshResponse_json = json.load(json_file)
+        stateRefreshResponse_json['headers']['requestId'] = request_json['headers']['requestId']
+    return stateRefreshResponse_json
+
+# Handle command request interaction type from SmartThings
+def commandRequest(request_json):
+    commandResponse_json = {}
+    with open('./webhook_oauth/templates/commandResponse.json') as json_file:
+        commandResponse_json = json.load(json_file)
+        commandResponse_json['headers']['requestId'] = request_json['headers']['requestId']
+    return commandResponse_json
             
-            return ""
-

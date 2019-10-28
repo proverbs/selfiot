@@ -1,3 +1,10 @@
+## How to setup
+
+1. create virtual environment using `conda create --name iot python=3.6`
+2. use virtual environment we just created: `conda activate iot`
+3. install required packages: `pip install -r requirements.txt`
+
+
 ## How to run in SSL mode
 
 1. ssh into the server

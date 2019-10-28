@@ -1,6 +1,7 @@
 from django.shortcuts import redirect
 from rest_framework import generics, permissions
 from django.contrib.auth.models import User, Group
+from django.shortcuts import render
 from oauth2_provider.contrib.rest_framework import TokenHasReadWriteScope, TokenHasScope
 from webhook_oauth.serializers import UserSerializer, GroupSerializer
 import json
@@ -31,8 +32,7 @@ def webhook(request):
 
     # GET
     if request.method == 'GET':
-        print('error')
-        return redirect('https://www.google.com')
+        return render(request, 'webhook.html', {})
 
     # POST
     if request.method == 'POST':

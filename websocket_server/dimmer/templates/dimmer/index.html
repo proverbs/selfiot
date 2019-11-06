@@ -1,0 +1,28 @@
+<!-- dimmer/templates/dimmer/index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Dimmer Debug</title>
+  </head>
+  <body>
+    Which dimmer debug console would you like to enter?<br />
+    <input id="dimmer-name-input" type="text" size="100" /><br />
+    <input id="dimmer-name-submit" type="button" value="Enter" />
+
+    <script>
+      document.querySelector("#dimmer-name-input").focus();
+      document.querySelector("#dimmer-name-input").onkeyup = function(e) {
+        if (e.keyCode === 13) {
+          // enter, return
+          document.querySelector("#dimmer-name-submit").click();
+        }
+      };
+
+      document.querySelector("#dimmer-name-submit").onclick = function(e) {
+        var dimmerName = document.querySelector("#dimmer-name-input").value;
+        window.location.pathname = "/dimmer/" + dimmerName + "/";
+      };
+    </script>
+  </body>
+</html>

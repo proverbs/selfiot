@@ -57,9 +57,10 @@
 from websocket import create_connection
 
 # TODO: change to hostname, how to get the dimmer name?
-uri = "ws://localhost:8000/ws/dimmer/qwer/"
+uri = "ws://localhost:8000/ws/dimmer/device_1/"
 
 ws = create_connection(uri)
+# print("success")
 
 while True:
     cmd =  ws.recv()

@@ -29,7 +29,7 @@ class GroupList(generics.ListAPIView):
     serializer_class = GroupSerializer
 
 # constants
-externalDeviceId = "device-1"
+externalDeviceId = "device_1"
 friendlyName = "Dimmer"
 manufacturerName = "Our.Inc"
 modelName = "V1 Dimmer"

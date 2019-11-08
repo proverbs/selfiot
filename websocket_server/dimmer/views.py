@@ -30,11 +30,9 @@ def debug_console(request, dimmer_name):
 
 def turn_on(request, dimmer_name):
     send_channel_message(dimmer_name, 'turn on...')
-    # TODO: recv response from channel group, which seems impossible
-    return HttpResponse('success')
+    return HttpResponse('') # TODO
 
 
 def turn_off(request, dimmer_name):
     send_channel_message(dimmer_name, 'turn off...')
-    # TODO: recv response from channel group, which seems impossible
-    return HttpResponse('success')
+    return HttpResponse('') # TODO

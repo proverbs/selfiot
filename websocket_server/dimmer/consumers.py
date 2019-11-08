@@ -27,16 +27,14 @@ class CommandConsumer(WebsocketConsumer):
         text_data_json = json.loads(text_data)
         message = text_data_json['message']
 
-        # not respond to success command
-        if "success" not in message:
-            # Send message to dimmer group
-            async_to_sync(self.channel_layer.group_send)(
-                self.dimmer_group_name,
-                {
-                    'type': 'command_message',
-                    'message': message
-                }
-            )
+        # Send message to dimmer group
+        async_to_sync(self.channel_layer.group_send)(
+            self.dimmer_group_name,
+            {
+                'type': 'command_message',
+                'message': message
+            }
+        )
 
     # Receive message from dimmer group
     def command_message(self, event):

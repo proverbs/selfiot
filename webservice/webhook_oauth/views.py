@@ -113,7 +113,7 @@ def stateRefreshRequest(request_json):
     State.objects.get_or_create(device=device, component="main", capability="st.switch", attribute="switch", value="on")
     State.objects.get_or_create(device=device, component="main", capability="st.switchLevel", attribute="level", value="80")
     State.objects.get_or_create(device=device, component="main", capability="st.healthCheck", attribute="healthStatus", value="online")
- 
+
     for state in State.objects.all():
         states.append(json.loads(serializers.serialize('json', [state],
                                     fields=('component', 'capability', 'attribute', 'value'))
@@ -188,7 +188,7 @@ def commandRequest(request_json):
     deviceState_json['deviceCookie'] = {}
     deviceState_json['states'] = states
     deviceState.append(deviceState_json)
-   
+
     commandResponse_json['headers'] = request_json['headers']
     commandResponse_json['headers']['interactionType'] = 'commandResponse'
     commandResponse_json['deviceState'] = deviceState

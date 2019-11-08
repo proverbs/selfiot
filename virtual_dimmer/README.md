@@ -2,8 +2,9 @@
 
 ## TODO List
 
-- [ ] connect to WiFi
-- [ ] user sign-up and log-in
+- [ ] Connect to WiFi
+- [ ] User sign-up and log-in
+- [ ] Get the unique dimmer name
 - [x] Launch a web socket
 - [ ] Add authentication for web socket
 

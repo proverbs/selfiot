@@ -9,3 +9,16 @@
 ## Web Sockets
 
 `ws://<hostname>/ws/dimmer/<dimmer_name>/`
+
+## Requirement
+
+```
+pip install channels
+pip install channels_redis
+```
+
+You will probably install `redis`, which could be different based on your platform.
+
+## Start
+
+`python manage.py runserver /0.0.0.0:8765`
